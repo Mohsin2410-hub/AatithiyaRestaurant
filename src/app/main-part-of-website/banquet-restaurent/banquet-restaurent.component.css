@@ -1,0 +1,160 @@
+/* -----banquet---and-- Restaurant-- */
+#banquet h2 {
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #F49930;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  #banquet h2::after{
+    content:"";
+    height: 5px;
+    width: 250px;
+    background-color: brown;
+    border-radius: 25px;
+    display: block;
+    margin: auto;
+  }
+
+.img-content {
+  width: 100%;
+  height: 100%;
+    opacity: 0;
+    z-index: 2;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+
+.box::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.871);
+    opacity: 1;
+    z-index: 1;
+
+    transform: scaleY(0);
+    transform-origin: 100% 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+
+}
+
+.box:hover::after {
+    opacity: 5;
+    transform: scaleY(1);
+}
+
+.box:hover .img-content {
+    opacity: 5;
+    top: 40%;
+}
+
+.box .img-content .my-text {
+  font-size: 3vw;
+  font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.box {
+    width: 26vw;
+    height: 24vw;
+    background-color: black;
+    border-radius: 15%;
+    border: 3.5px solid brown;
+    margin-left: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 10px 10px 10px 0px rgb(15, 15, 15);
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    /* opacity: 0.7; */
+    object-fit: cover;
+}
+.box1 {
+    width: 22.5vw;
+    height: 22.5vw;
+    background-color: black;
+    border: 3px solid brown;
+    border-radius: 15%;
+    margin: 10px 10px 10px 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    box-shadow: 5px 3px 5px 2px rgb(25, 25, 25);
+}
+.box1 img {
+    width: 100%;
+    height: 100%;
+    /* opacity: 0.7; */
+    object-fit: cover;
+}   
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+}
+
+.container3{
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    
+}
+.hello{
+    border-radius: 2rem;
+    margin-bottom: 80px;
+    height: 20%;
+    width: 100%;
+}
+/* ------Restaurent------ */
+
+#banquet1 h2 {
+  text-align: center;
+  font-size: 35px;
+  text-transform: uppercase;
+  color: #F49930;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#banquet1 h2::after{
+  content:"";
+  height: 5px;
+  width: 310px;
+  background-color: brown;
+  border-radius: 25px;
+  display: block;
+  margin: auto;
+}
+#banquet1 .my-text{
+    cursor: pointer;
+}

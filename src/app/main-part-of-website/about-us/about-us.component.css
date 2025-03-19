@@ -1,0 +1,158 @@
+/* --------About page------- */
+.section {
+  width: 100%;
+}
+
+.section .container1 {
+  width: 80%;
+  display: block;
+  margin: 0px auto;
+  padding: 50px 0px;
+}
+
+.container1 .title {
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+.container1 .title .centerHeading {
+  text-transform: uppercase;
+  font-size: 35px;
+  text-align: center;
+  color: #F49930;
+  margin-top: 80px;
+}
+
+.container1 .title .centerHeading::after {
+  content: "";
+  height: 5px;
+  width: 100px;
+  background-color: brown;
+  border-radius: 25px;
+  display: block;
+  margin: auto;
+}
+
+.content {
+  float: left;
+  width: 55%;
+}
+
+.image-section {
+  float: right;
+  width: 40%;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  border: 3px solid brown;
+}
+
+.content .article h3 {
+  color: #000;
+  font-size: 17px;
+}
+
+.content .article p {
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.content .article .button {
+  margin-top: 50px;
+}
+
+.content .article .button a {
+  text-decoration: none;
+  padding: 8px 25px;
+  background-color: brown;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+.content .article .button a:hover {
+  color: #fff;
+  background-color: #F49930;
+  transition: 1s ease;
+}
+
+.container1 .social {
+  width: 100%;
+  clear: both;
+  margin-top: 50px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* .container1 .social i{
+    color: #fff;
+    font-size: 22px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    line-height: 45px;
+    text-align: center;
+    background-color: #F49930;
+    margin: 0px 5px;
+  }
+  .container1 .social i:hover{
+    color: #fff;
+    background-color: brown;
+    transition: 1s ease;
+    transform: rotate(360deg);
+  } */
+
+@media screen and (max-width: 768px) {
+  .section .container1 {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+
+  .content {
+    float: none;
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .image-section {
+    float: none;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .container1 .title h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .container1 .article .button {
+    text-align: center;
+  }
+
+  .container1 .article .button a {
+    padding: 6px 15px;
+    font-size: 16px;
+  }
+
+  /* .container1 .social i{
+      font-size: 19px;
+      height: 35px;
+      width: 35px;
+      line-height: 35px;
+    } */
+}
