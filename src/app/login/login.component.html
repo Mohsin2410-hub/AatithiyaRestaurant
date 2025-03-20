@@ -10,14 +10,14 @@
     <div class="login-form">
       <a class="navbar-brand me-auto" href="#"><img class="logo" src="../../image/aatithy logo1-01.png" alt=""></a>
       <h2>Admin Login</h2>
-      <form>
+      <form [formGroup]="loginData" (click)="onSubmit()">
         <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="username" id="username" name="username" required>
+          <label for="userName">Username:</label>
+          <input type="userName" id="userName" name="userName" formControlName="userName" required>
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" formControlName="passWord" required>
         </div>
         <button type="submit">Login</button>
       </form>
