@@ -45,36 +45,17 @@ export class LoginComponent {
 
   onSubmit()
   {
-    if (this.loginData.invalid) {
-      if (!this.userName?.value)
-      {
-        this.invalidUsername = true
-        window.alert("Username not provided");
+    console.log("calling api")
+    this.apiService.post(`/api/Login/LoginAuthentication?Username=${this.loginData.value.userName}&Password=${this.loginData.value.passWord}`, "").subscribe({
+      next: (data: Login) => {
+        setIsLogin(false)
+        setToken(data.data.token, data.data.username);
+        window.alert("Login successfully !")
+      },
+      error: (err: object | any) => {
+        console.log(err)
+        window.alert(err.name);
       }
-      else if(!this.passWord?.value)
-      {
-        this.invalidPassword = true
-        window.alert("Password is not provided");
-      }
-      else {
-        this.invalidUsername = true
-        this.invalidPassword = true
-        window.alert("Nothing is provided");
-      }
-      return;
-    }
-    else {
-      console.log("calling api")
-      this.apiService.post(`/api/Login/LoginAuthentication?Username=${this.loginData.value.userName}&Password=${this.loginData.value.passWord}`, "").subscribe({
-        next: (data: Login) => {
-          setIsLogin(false)
-          setToken(data.data.token, data.data.username);
-        },
-        error: (err: object | any) => {
-          console.log(err)
-          window.alert(err.name);
-        }
-      })
-    }
+    })
   }
 }

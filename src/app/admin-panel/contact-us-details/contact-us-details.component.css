@@ -1,0 +1,39 @@
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .button-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .button-container button:hover {
+    background-color: brown;
+  }
+  @media (max-width: 600px) {
+    .button-container {
+        justify-content: center;
+    }
+    .button-container button {
+        margin: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+  }
+  .display-area {
+    position: absolute;
+    left: 60px;
+    width: calc(100% - 60px);
+    transition: left 250ms ease-in, width 250ms ease-in;
+  }
+  
+  .display-area-shrink {
+    width: calc(100% - 250px);
+    left: 250px;
+  
+  }
