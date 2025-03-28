@@ -10,7 +10,7 @@
     <div class="login-form">
       <a class="navbar-brand me-auto" href="#"><img class="logo" src="../../image/aatithy logo1-01.png" alt=""></a>
       <h2>Admin Login</h2>
-      <form [formGroup]="loginData" (click)="onSubmit()">
+      <form [formGroup]="loginData" (submit)="onSubmit()">
         <div class="form-group">
           <label for="userName">Username:</label>
           <input type="userName" id="userName" name="userName" formControlName="userName" required>

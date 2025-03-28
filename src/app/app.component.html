@@ -1,5 +1,2 @@
-@if(tokenExists())
-{
-    <app-saidbar-admin />
-}
-<router-outlet></router-outlet>
+<app-saidbar-admin *ngIf="tokenExists()"/>
+<router-outlet *ngIf="!tokenExists()"></router-outlet>

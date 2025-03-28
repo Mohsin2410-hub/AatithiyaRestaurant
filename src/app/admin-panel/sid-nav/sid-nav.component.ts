@@ -23,7 +23,6 @@ export class SidNavComponent implements OnInit{
   {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
-    window.location.reload();
-    this._router.navigate(["#"])
+    this._router.navigate([""])
   }
 }

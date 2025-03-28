@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { Login } from '../../apiServices/intLogin';
 import { ApiServices } from '../../apiServices/apiServices';
-import { setToken, token, isLogin, setIsLogin } from '../../apiServices/globals';
+import { setToken } from '../../apiServices/globals';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,6 @@ export class LoginComponent {
     private _router: Router,
     private apiService: ApiServices
   ) {
-    localStorage.clear();
     this.loginData = this._fb.group({
       userName: ["", [Validators.required]],
       passWord: ["", [Validators.required]]
@@ -44,7 +43,6 @@ export class LoginComponent {
     console.log("calling api")
     this.apiService.post(`/api/Login/LoginAuthentication?Username=${this.loginData.value.userName}&Password=${this.loginData.value.passWord}`, "").subscribe({
       next: (data: Login) => {
-        setIsLogin(false)
         setToken(data.data.token, data.data.username);
         window.alert("Login successfully !")
         this._router.navigate(["/home"])

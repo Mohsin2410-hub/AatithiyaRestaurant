@@ -22,13 +22,6 @@ export class HomeDetailsComponent {
  constructor(private _router: Router)
  {
   this.setHeading("Home");
-  this.token = getToken();
-  console.log(this.token)
-  if (!this.token)
-  {
-    window.alert("Something wrong with the token");
-    this._router.navigate([""]);
-  }
  }
  
 }
