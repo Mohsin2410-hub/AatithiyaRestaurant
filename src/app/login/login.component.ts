@@ -28,10 +28,6 @@ export class LoginComponent {
       passWord: ["", [Validators.required]]
     })
   }
-  
-  ngOnInit() {
-    console.log(isLogin)
-  }
 
   get userName()
   {
@@ -51,6 +47,7 @@ export class LoginComponent {
         setIsLogin(false)
         setToken(data.data.token, data.data.username);
         window.alert("Login successfully !")
+        this._router.navigate(["/home"])
       },
       error: (err: object | any) => {
         console.log(err)

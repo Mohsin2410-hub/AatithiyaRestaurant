@@ -3,7 +3,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { SaidbarAdminComponent } from "./admin-panel/saidbar-admin/saidbar-admin.component";
 import { getToken } from '../apiServices/globals';
 
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, SaidbarAdminComponent],

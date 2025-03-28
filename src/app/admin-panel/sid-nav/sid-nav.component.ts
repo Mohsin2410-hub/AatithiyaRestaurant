@@ -1,6 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sid-nav',
@@ -13,10 +13,17 @@ export class SidNavComponent implements OnInit{
   @Input() sideNavStatus: boolean = false;
 
 
-  constructor() {}
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {
     
   }
   
+  logout()
+  {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    window.location.reload();
+    this._router.navigate(["#"])
+  }
 }
