@@ -1,0 +1,32 @@
+<main>
+    <div class="container3">
+        <button (click)="fileUpload1.click()">
+            <div class="box1">
+                <input type="file" class="file-input" style="display: none"
+                (change)="onFileSelect($event, 'img1')" #fileUpload1>
+                <img [src]="uploadedImg1" alt="error" />
+            </div>
+        </button>
+        <button (click)="fileUpload2.click()">
+            <div class="box1">
+                <input type="file" class="file-input" style="display: none"
+                (change)="onFileSelect($event, 'img2')" #fileUpload2>
+                <img [src]="uploadedImg2" alt="error" />
+            </div>
+        </button>
+        <button (click)="fileUpload3.click()">
+            <div class="box1">
+                <input type="file" class="file-input" style="display: none"
+                (change)="onFileSelect($event, 'img3')" #fileUpload3>
+                <img [src]="uploadedImg3" alt="error" />
+            </div>
+        </button>
+        <button (click)="fileUpload4.click()">
+            <div class="box1">
+                <input type="file" class="file-input" style="display: none"
+                (change)="onFileSelect($event, 'img4')" #fileUpload4>
+                <img [src]="uploadedImg4" alt="error" />
+            </div>
+        </button>
+    </div>
+</main>

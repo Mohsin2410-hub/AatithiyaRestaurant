@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, effect } from '@angular/core';
+import { Route, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { SaidbarAdminComponent } from "./admin-panel/saidbar-admin/saidbar-admin.component";
-import { getToken } from '../apiServices/globals';
+import { getToken, token } from '../apiServices/globals';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -13,16 +13,31 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   title = 'aatithya'; 
   tkn: string
-  constructor()
+  constructor(
+    private _router: Router
+  )
   {
     this.tkn = localStorage.getItem('token') || "";
+    if (this.tokenExists())
+    {
+      window.alert("Already logged in on different session, directly going back in");
+      this._router.navigate(["/home"])
+    }
   }
+
+  logout()
+  {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    this._router.navigate([""])
+  }
+
   tokenExists() {
     if (getToken()) return true;
     return false;
   }
   check()
   {
-    console.log(this.tokenExists())
+    console.log(this.tokenExists());
   }
 }

@@ -1,6 +1,10 @@
-export let token: string = localStorage.getItem("token") || ""
+import { signal, WritableSignal } from "@angular/core";
+
+export let token: WritableSignal<string> = signal(localStorage.getItem("token") || "")
 export const url: string = "http://localhost:5042"
 // export const url: string = "http://192.168.1.13:8081"
+// export const url: string = "http://192.168.251.154:8081"
+// export const url: string = "http://172.20.10.4:8081"
 export let isLogin: boolean = false;
 export let uName: string = "";
 export let password: string = "";
@@ -8,8 +12,9 @@ export let user: string = "";
 
 export const setToken = (tmp: string, uName?: string) => 
 {
-  token = tmp;
-  localStorage.setItem("token", token);
+  
+  localStorage.setItem("token", tmp);
+  token.set(localStorage.getItem("token") || "");
   localStorage.setItem("userName", uName || "");
 }
 

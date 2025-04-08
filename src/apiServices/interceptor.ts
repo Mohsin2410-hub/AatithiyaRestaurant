@@ -9,7 +9,7 @@ export const custInterceptor: HttpInterceptorFn = (req, next) => {
     const router = inject(Router);
     const cloneReq = req.clone({
         setHeaders: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token()}`
         }
     })
 

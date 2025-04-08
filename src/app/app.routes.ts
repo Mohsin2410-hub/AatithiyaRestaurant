@@ -73,6 +73,11 @@ export const routes: Routes = [
   path: 'afterLogin',
   component: SaidbarAdminComponent,
   title: 'After Login'
+},
+{
+  path: 'changeDefaultImage',
+  loadChildren: () => import('./change-default-images/change-default-images.module').then((m) => m.ChangeDefaultImagesModule),
+  title: "Change Default Image Path"
 }
 
 ];
