@@ -5,6 +5,9 @@ import { token, url } from './globals';
 
 const uploadRoute = "/api/Image/InsertImage"
 const getByCategoryRoute = "/api/Image/GetImageByCategoryId"
+const getAll = "/api/Image/GetAllImages"
+const del = "/api/Image/DeleteImage"
+const delAll = "/api/Image/DeleteImages"
 
 const httpHeaders: HttpHeaders = new HttpHeaders({
   ContentType: 'multipart/form-data',
@@ -22,10 +25,22 @@ export interface uploadImgRes {
 }
 
 export interface imageUpload {
-    id: number
-    imgUrl: string
-    imgCategory: number
-    imgTitle: string
+  id: number
+  imgUrl: string
+  imgCategory: number
+  imgTitle: string
+  imgName: any
+  isMainDisp: boolean
+  isMenu: boolean
+  isGallery: boolean
+}
+
+export interface imageUploadTable {
+  id: number
+  imgUrl: string
+  imgCategory: string
+  imgTitle: string
+  imgLongUrl: string
 }
 
 @Injectable({
@@ -35,13 +50,28 @@ export class ImgUploadService {
   constructor(private http: HttpClient) {
   }
 
+  getAll(): Observable<uploadImgRes> {
+    return this.http.get<uploadImgRes>(`${url}${getAll}`);
+  }
+
   uploadImg(data: FormData): Observable<uploadImgRes> {
-    return this.http.post<uploadImgRes>(`${url}${uploadRoute}`, data, {
-      headers: httpHeaders,
-    })
+    return this.http.post<uploadImgRes>(`${url}${uploadRoute}`, data)
   }
 
   getAllImgByCategory(id: number): Observable<uploadImgRes> {
-    return this.http.get<uploadImgRes>(`${url}${getByCategoryRoute}/${id}`)
+    return this.http.get<uploadImgRes>(`${url}${getByCategoryRoute}/${id}`);
+  }
+
+  delete(id: number): Observable<uploadImgRes> {
+    return this.http.delete<uploadImgRes>(`${url}${del}/${id}`);
+  }
+
+  deleteImgs(id: number[]): Observable<uploadImgRes> {
+    const options = {
+      body: id
+    }
+    return this.http.delete<uploadImgRes>(`${url}${delAll}`, 
+      options
+    )
   }
 }

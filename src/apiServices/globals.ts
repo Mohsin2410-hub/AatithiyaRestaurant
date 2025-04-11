@@ -27,3 +27,11 @@ export const getToken = () => {
 export const getLogin = () => {
   return isLogin;
 }
+
+export function setLatestImage(data: any, title: string): string {
+  const filtered = data.filter((img: any) => img.imgTitle === title);
+  if (filtered.length === 0) return ""; // fallback
+
+  const latest = filtered.reduce((a: any, b: any) => (a.id > b.id ? a : b));
+  return `${url}/Banquet_img/${latest.imgUrl}`;
+}

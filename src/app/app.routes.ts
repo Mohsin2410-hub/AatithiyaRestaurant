@@ -11,6 +11,7 @@ import { RestaurantDetailsComponent } from './admin-panel/restaurant-details/res
 import { ContactUsDetailsComponent } from './admin-panel/contact-us-details/contact-us-details.component';
 import { GalleryDetailsComponent } from './admin-panel/gallery-details/gallery-details.component';
 import { SaidbarAdminComponent } from './admin-panel/saidbar-admin/saidbar-admin.component';
+import { ImgListComponent } from './admin-panel/img-list/img-list.component';
 
 export const routes: Routes = [
 
@@ -78,6 +79,11 @@ export const routes: Routes = [
   path: 'changeDefaultImage',
   loadChildren: () => import('./change-default-images/change-default-images.module').then((m) => m.ChangeDefaultImagesModule),
   title: "Change Default Image Path"
+},
+{
+  path: 'listImages',
+  component: ImgListComponent,
+  title: "Image Overview"
 }
 
 ];
