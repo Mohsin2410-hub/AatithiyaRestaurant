@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 declare var Swiper: any;
 @Component({
   selector: 'app-gallary',
-  imports: [],
+  imports: [ RouterLink],
   templateUrl: './gallary.component.html',
   styleUrl: './gallary.component.css'
 })
@@ -52,5 +53,4 @@ export class GallaryComponent {
     //   },
     // });
   }
-
 }

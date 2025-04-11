@@ -12,6 +12,7 @@ import { ContactUsDetailsComponent } from './admin-panel/contact-us-details/cont
 import { GalleryDetailsComponent } from './admin-panel/gallery-details/gallery-details.component';
 import { SaidbarAdminComponent } from './admin-panel/saidbar-admin/saidbar-admin.component';
 import { ImgListComponent } from './admin-panel/img-list/img-list.component';
+import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 
 export const routes: Routes = [
 
@@ -84,6 +85,11 @@ export const routes: Routes = [
   path: 'listImages',
   component: ImgListComponent,
   title: "Image Overview"
+},
+{
+  path: 'galleryDisp/:categoryId',
+  component: GalleryViewComponent,
+  title: "Gallery VIew"
 }
 
 ];

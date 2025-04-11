@@ -1,6 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { changeHeading, getHeading } from '../saidbar-admin/saidbar-admin.component';
+import { ImgUploadService } from '../../../apiServices/imageUpload';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-gallery-details',
@@ -14,7 +17,10 @@ export class GalleryDetailsComponent {
   getHeading = getHeading;
   setHeading = changeHeading;
 
-  constructor() {
+  constructor(
+      private imgUpload: ImgUploadService,
+      private router: Router
+  ) {
     this.setHeading("Gallery");
   }
 }

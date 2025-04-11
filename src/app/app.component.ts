@@ -18,11 +18,6 @@ export class AppComponent {
   )
   {
     this.tkn = localStorage.getItem('token') || "";
-    if (this.tokenExists())
-    {
-      window.alert("Already logged in on different session, directly going back in");
-      this._router.navigate(["/home"])
-    }
   }
 
   logout()

@@ -10,6 +10,7 @@ import { DialogComponent } from './dialog-animations';
 import { imageUploadTable, ImgUploadService, uploadImgRes } from '../../../apiServices/imageUpload';
 import { changeHeading, getHeading } from '../saidbar-admin/saidbar-admin.component';
 import { url } from '../../../apiServices/globals';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-img-list',
@@ -19,6 +20,8 @@ import { url } from '../../../apiServices/globals';
 })
 export class ImgListComponent {
   sideNavStatus: boolean = false;
+  categoryId: string | null = null;
+  id: string;
     
   getHeading = getHeading;
   setHeading = changeHeading;
@@ -82,12 +85,55 @@ export class ImgListComponent {
   constructor(
     private dataAccess: ImgUploadService,
     private matDialog: MatDialog,
+    private route: ActivatedRoute
   )
   {
+    this.id = this.route.snapshot.paramMap.get("id") ||"0"
     this.setHeading("Images List View");
     this.dataAccess.getAll()
     .subscribe((m: uploadImgRes) => {
       m.response.data.map(d => {
+        switch(parseInt(this.id || "0"))
+        {
+          case 1:
+            if (d.imgCategory === 2)
+              this.tmp.push({
+                id: d.id,
+                imgCategory: this.change(d.imgCategory),
+                imgTitle: d.imgTitle,
+                imgUrl: d.imgUrl,
+                imgLongUrl: `${url}/${this.changeDir(d.imgCategory)}/${d.imgUrl}`
+              })
+            break;
+          case 2:
+            if (d.imgCategory === 3)
+              this.tmp.push({
+                id: d.id,
+                imgCategory: this.change(d.imgCategory),
+                imgTitle: d.imgTitle,
+                imgUrl: d.imgUrl,
+                imgLongUrl: `${url}/${this.changeDir(d.imgCategory)}/${d.imgUrl}`
+              })
+            break
+            case 3:
+              if (d.imgCategory === 4)
+                this.tmp.push({
+                  id: d.id,
+                  imgCategory: this.change(d.imgCategory),
+                  imgTitle: d.imgTitle,
+                  imgUrl: d.imgUrl,
+                  imgLongUrl: `${url}/${this.changeDir(d.imgCategory)}/${d.imgUrl}`
+                })
+              break
+          default:
+            this.tmp.push({
+              id: d.id,
+              imgCategory: this.change(d.imgCategory),
+              imgTitle: d.imgTitle,
+              imgUrl: d.imgUrl,
+              imgLongUrl: `${url}/${this.changeDir(d.imgCategory)}/${d.imgUrl}`
+            })
+        }
         this.tmp.push({
           id: d.id,
           imgCategory: this.change(d.imgCategory),
